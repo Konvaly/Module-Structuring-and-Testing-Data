@@ -1,4 +1,7 @@
 function formatAs12HourClock(time) {
+  if (Number(time.slice(0, 2)) > 12) {
+    return "Don't know how to handle times in the afternoon yet";
+  }
   return `${time} am`;
 }
 
