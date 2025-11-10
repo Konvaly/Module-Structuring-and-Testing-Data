@@ -8,8 +8,32 @@
 // write one test at a time, and make it pass, build your solution up methodically
 // just make one change at a time -- don't rush -- programmers are deep and careful thinkers
 function getCardValue(card) {
+<<<<<<< HEAD
   if (rank === "A") {
     return 11;
+=======
+  const rank = card.slice(0, -1);
+  const cardFace = card.slice(-1);
+  const numRank = Number(rank);
+  const allowedCardFaces = ["♠", "♣", "♦", "♥"];
+
+  if (!allowedCardFaces.includes(cardFace)) {
+    return "Invalid card face.";
+  }
+
+  if (rank === "A") {
+    return 11;
+  }
+
+  if (rank === "10" || rank === "J" || rank === "Q" || rank === "K") {
+    return 10;
+  }
+
+  if (Number.isInteger(numRank) && numRank >= 2 && numRank <= 9) {
+    return numRank;
+  } else {
+    return "Invalid card rank.";
+>>>>>>> 24010e0 (Solved task 3/1-implement-and-rewrite-tests/implement/3-get-card-value.js)
   }
 }
 
@@ -55,3 +79,18 @@ const fiveofHearts = getCardValue("5♥");
 // Given a card with an invalid rank (neither a number nor a recognized face card),
 // When the function is called with such a card,
 // Then it should throw an error indicating "Invalid card rank."
+<<<<<<< HEAD
+=======
+const invalidNumberCard = getCardValue("12♥");
+assertEquals(invalidNumberCard, "Invalid card rank.");
+const invalidFaceCard = getCardValue("5*");
+assertEquals(invalidFaceCard, "Invalid card face.");
+const invalidFaceCard10 = getCardValue("10$");
+assertEquals(invalidFaceCard10, "Invalid card face.");
+const invalidFaceCardJack = getCardValue("J%");
+assertEquals(invalidFaceCardJack, "Invalid card face.");
+const invalidFaceCardQueen = getCardValue("Q£");
+assertEquals(invalidFaceCardQueen, "Invalid card face.");
+const invalidFaceCardKing = getCardValue("K^");
+assertEquals(invalidFaceCardKing, "Invalid card face.");
+>>>>>>> 24010e0 (Solved task 3/1-implement-and-rewrite-tests/implement/3-get-card-value.js)
