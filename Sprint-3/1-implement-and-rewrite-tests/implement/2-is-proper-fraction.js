@@ -11,6 +11,12 @@ function isProperFraction(numerator, denominator) {
   if (numerator < denominator) {
     return true;
   }
+  if (numerator > denominator) {
+    return false;
+  }
+  if (numerator === denominator) {
+    return false;
+  }
 }
 
 // The line below allows us to load the isProperFraction function into tests in other files.
@@ -46,14 +52,35 @@ assertEquals(improperFraction, false);
 // target output: true
 // Explanation: The fraction -4/7 is a proper fraction because the absolute value of the numerator (4) is less than the denominator (7). The function should return true.
 const negativeFraction = isProperFraction(-4, 7);
-// ====> complete with your assertion
+assertEquals(negativeFraction, true);
 
 // Equal Numerator and Denominator check:
 // Input: numerator = 3, denominator = 3
 // target output: false
 // Explanation: The fraction 3/3 is not a proper fraction because the numerator is equal to the denominator. The function should return false.
 const equalFraction = isProperFraction(3, 3);
-// ====> complete with your assertion
+assertEquals(equalFraction, false);
 
 // Stretch:
 // What other scenarios could you test for?
+
+// Both Numerator and Denominator Negative check:
+// Input: numerator = -4, denominator = -9
+// target output: false
+// Explanation: The fraction -4/-9 is equivalent to 4/9, which is a proper fraction. Function should return false.
+const bothNegative = isProperFraction(-4, -9);
+assertEquals(bothNegative, false);
+
+// Zero Numerator check:
+// Input: numerator = 0, denominator = 7
+// target output: true
+// Explanation: The fraction 0/7 is a proper fraction because the numerator is less than the denominator. The function should return true.
+const zeroNumerator = isProperFraction(0, 7);
+assertEquals(zeroNumerator, true);
+
+// Zero Denominator check:
+// Input: numerator = 2, denominator = 0
+// target output: false
+// Explanation: The fraction 2/0 is undefined because division by zero is not allowed. The function should return false.
+const zeroDenominator = isProperFraction(2, 0);
+assertEquals(zeroDenominator, false);
