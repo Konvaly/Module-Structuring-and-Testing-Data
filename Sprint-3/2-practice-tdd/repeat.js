@@ -1,4 +1,8 @@
 function repeat(str, count) {
+  if (count === 0) {
+    return "";
+  }
+
   let repeatedStrCountTimes = "";
 
   let i = 0;
@@ -6,6 +10,7 @@ function repeat(str, count) {
     repeatedStrCountTimes += str;
     i++;
   }
+  console.log(repeatedStrCountTimes);
   return repeatedStrCountTimes;
 }
 
