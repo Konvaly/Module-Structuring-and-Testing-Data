@@ -2,6 +2,9 @@ function repeat(str, count) {
   if (count === 0) {
     return "";
   }
+  if (count < 0) {
+    return "Error! Negative counts are not valid!";
+  }
 
   let repeatedStrCountTimes = "";
 
@@ -10,7 +13,7 @@ function repeat(str, count) {
     repeatedStrCountTimes += str;
     i++;
   }
-  console.log(repeatedStrCountTimes);
+
   return repeatedStrCountTimes;
 }
 
