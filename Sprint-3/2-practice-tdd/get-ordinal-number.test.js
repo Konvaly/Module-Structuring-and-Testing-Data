@@ -29,9 +29,20 @@ test("should return '3rd' for 3", () => {
 });
 
 // Case 4: Identify the ordinal number for other numbers
-// When the number is 11,
-// Then the function should return "11th"
+// If the last digit of number is not 1, 2, 3
+// and the last two digits are not between 11 and 13
+// Then the function should return the number with "th" suffix
 
-test("should return '11th' for 11", () => {
-  expect(getOrdinalNumber(11)).toEqual("11th");
+test("should return '44th' for 44", () => {
+  expect(getOrdinalNumber(44)).toEqual("44th");
+  expect(getOrdinalNumber(9)).toEqual("9th");
+  expect(getOrdinalNumber(20)).toEqual("20th");
+  expect(getOrdinalNumber(100)).toEqual("100th");
+  expect(getOrdinalNumber(111)).toEqual("111th");
+  expect(getOrdinalNumber(112)).toEqual("112th");
+  expect(getOrdinalNumber(113)).toEqual("113th");
+  expect(getOrdinalNumber(131)).toEqual("131st");
+  expect(getOrdinalNumber(222)).toEqual("222nd");
+  expect(getOrdinalNumber(323)).toEqual("323rd");
+  expect(getOrdinalNumber(4046486655)).toEqual("4046486655th");
 });
