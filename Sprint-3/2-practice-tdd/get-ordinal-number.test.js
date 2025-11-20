@@ -32,8 +32,9 @@ test("should return '3rd' for 3", () => {
 // If the last digit of number is not 1, 2, 3
 // and the last two digits are not between 11 and 13
 // Then the function should return the number with "th" suffix
+// otherwise, return the number with the appropriate suffix
 
-test("should return '44th' for 44", () => {
+test("should return '44th' for 44; '131st' for 131 etc.", () => {
   expect(getOrdinalNumber(44)).toEqual("44th");
   expect(getOrdinalNumber(9)).toEqual("9th");
   expect(getOrdinalNumber(20)).toEqual("20th");
